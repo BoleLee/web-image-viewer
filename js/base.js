@@ -1,6 +1,8 @@
 /**
   * 此代码设置data-dpr, viewport, font-size以适配移动设备，应最先加载，最好是内联使用
-  * Author: Grace Lee (964624188@qq.com)
+  * 主要参考自手淘移动端Web适配方案
+  * @BoleLee(964624188@qq.com) 
+  * 2017-04-01
   * 
   */
 (function (doc, win) {

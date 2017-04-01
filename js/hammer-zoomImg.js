@@ -1,3 +1,9 @@
+/**
+  * 此代码修改自：https://github.com/luzuoquan/hammer-pinch
+  * @BoleLee(964624188@qq.com) 
+  * 2017-04-01
+  */
+
 (function(){
   var zoomImg = function(id){
     this._id = document.querySelector(id);
