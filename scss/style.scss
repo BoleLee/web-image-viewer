@@ -1,0 +1,104 @@
+
+
+@function px2rem($px, $base-font-size: 16px) {
+  @if (unitless($px)) {
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+    @return px2rem($px + 0px); // That may fail.
+  } @else if (unit($px) == rem) {
+    @return $px;
+  }
+  @return ($px / $base-font-size) * 1rem;
+}
+
+// 适配dpr的字体大小
+@mixin font-dpr($font-size){
+  font-size: $font-size;
+
+  [data-dpr="2"] & {
+      font-size: $font-size * 2;
+  }
+
+  [data-dpr="3"] & {
+      font-size: $font-size * 3;
+  }
+}
+@mixin px-dpr($property, $px) {
+  #{$property}: $px;
+
+  [data-dpr="2"] & {
+    #{$property}: $px * 2;
+  }
+
+  [data-dpr="3"] & {
+    #{$property}: $px * 3;
+  }
+}
+
+
+
+.prev-dimmer {
+  position: relative;
+  background: rgba(0,0,0,0.7); 
+
+  .dimmer-back {
+    position: absolute; 
+    @include px-dpr(top, 22px);
+    @include px-dpr(right, 10px);
+    @include px-dpr(width, 40px);
+    @include px-dpr(height, 40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(153, 153, 153, 0.6);
+    z-index: 999;
+    span {
+      color: #fff;
+      font-weight: bold;
+      @include font-dpr(24px);
+    }
+    i {
+      color: #fff;
+      margin: 0;
+    }
+  }
+  .bottom-text {
+    position: fixed; 
+    left: 0; 
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 18px 13px;
+    color: #fff;
+    @include font-dpr(18px);
+    text-align: left;
+    background-color: rgba(0,0,0,0.6);
+    .authors {
+      display: flex;
+      .spans {
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        line-height: 120%;
+        text-align: left;
+      }
+    }
+  }
+  .owl-carousel .owl-item img {
+    // width: auto;
+  }
+}
+
+.prev-img-field, 
+.prev-video-field {
+  position: relative; 
+  width: 100vw; 
+  height: 100vh; 
+  // overflow: scroll;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  background-color: rgba(0,0,0,0.9); 
+}

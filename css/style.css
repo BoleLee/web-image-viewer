@@ -1,0 +1,79 @@
+.prev-dimmer {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7); }
+  .prev-dimmer .dimmer-back {
+    position: absolute;
+    top: 22px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(153, 153, 153, 0.6);
+    z-index: 999; }
+    [data-dpr="2"] .prev-dimmer .dimmer-back {
+      top: 44px; }
+    [data-dpr="3"] .prev-dimmer .dimmer-back {
+      top: 66px; }
+    [data-dpr="2"] .prev-dimmer .dimmer-back {
+      right: 20px; }
+    [data-dpr="3"] .prev-dimmer .dimmer-back {
+      right: 30px; }
+    [data-dpr="2"] .prev-dimmer .dimmer-back {
+      width: 80px; }
+    [data-dpr="3"] .prev-dimmer .dimmer-back {
+      width: 120px; }
+    [data-dpr="2"] .prev-dimmer .dimmer-back {
+      height: 80px; }
+    [data-dpr="3"] .prev-dimmer .dimmer-back {
+      height: 120px; }
+    .prev-dimmer .dimmer-back span {
+      color: #fff;
+      font-weight: bold;
+      font-size: 24px; }
+      [data-dpr="2"] .prev-dimmer .dimmer-back span {
+        font-size: 48px; }
+      [data-dpr="3"] .prev-dimmer .dimmer-back span {
+        font-size: 72px; }
+    .prev-dimmer .dimmer-back i {
+      color: #fff;
+      margin: 0; }
+  .prev-dimmer .bottom-text {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 18px 13px;
+    color: #fff;
+    font-size: 18px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.6); }
+    [data-dpr="2"] .prev-dimmer .bottom-text {
+      font-size: 36px; }
+    [data-dpr="3"] .prev-dimmer .bottom-text {
+      font-size: 54px; }
+    .prev-dimmer .bottom-text .authors {
+      display: flex; }
+      .prev-dimmer .bottom-text .authors .spans {
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        line-height: 120%;
+        text-align: left; }
+
+.prev-img-field,
+.prev-video-field {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9); }
+
+/*# sourceMappingURL=style.css.map */

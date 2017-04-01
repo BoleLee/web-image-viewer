@@ -1,0 +1,45 @@
+$image-url: '../images/semantic-ui/';
+$icon-font-url: '../fonts/semantic-ui/';
+
+ /* Global */
+@import "semantic-ui/globals/variables";
+@import "semantic-ui/globals/reset";
+@import "semantic-ui/globals/site";
+/* Elements */
+@import "semantic-ui/elements/icon";
+/* Collections */
+@import "semantic-ui/collections/grid";
+/* Modules */
+@import "semantic-ui/modules/transition";
+@import "semantic-ui/modules/dimmer";
+
+
+/*******************************
+             Reset
+*******************************/
+ul, p {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6,
+label {
+  font-weight: lighter;
+}
+div,
+header,
+ul,
+li,
+textarea {
+  box-sizing: border-box;
+}
+select.ui.dropdown {
+  height: auto;
+}
