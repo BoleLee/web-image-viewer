@@ -1,6 +1,7 @@
 /**
   * 此代码设置data-dpr, viewport, font-size以适配移动设备，应最先加载，最好是内联使用
   * 主要参考自手淘移动端Web适配方案
+  * 适配详细说明可看[这篇文章](https://segmentfault.com/a/1190000008767416)
   * @BoleLee(964624188@qq.com) 
   * 2017-04-01
   * 
