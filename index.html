@@ -1,57 +1,103 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>amazeui仿微信朋友圈缩放图片效果</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>轮换查看图片及图片缩放</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit">
 
-    <script src="js/base.js"></script>
+    <link rel="stylesheet" href="css/amazeui.min.css" />
+</head>
+<body>
 
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <!-- Semantic UI -->
-    <link rel="stylesheet" href="css/semantic-ui.css">
-
-    <link rel="stylesheet" href="css/style.css">
-
-  </head>
-  <body>
-
-    <div id="V_imgs_prev" class="prev-dimmer J_imgs_prev">
-      <div id="J_owl_imgs" class="owl-carousel owl-theme">
-      <!-- <div style="display: flex; flex-direction: column;"> -->
-        <template v-for="(img, index) in images">
-        <div class="prev-img-field">
-          <img :src="img.image_url" :id="'J_imgzooming_'+index" :alt="img.description">
-          <div class="bottom-text">
-            {{ img.description }}
-          </div>
+<ul data-am-widget="gallery" class="am-gallery am-avg-sm-3
+  am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
+    <li>
+        <div class="am-gallery-item">
+            <a href="images/1.jpg" class="">
+                <img src="images/1.jpg"  alt="远方 有一个地方 那里种有我们的梦想"/>
+                <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+                <div class="am-gallery-desc">2375-09-26</div>
+            </a>
         </div>
-        </template>
-      <!-- </div> -->
-      </div>
+    </li>
+    <li>
+        <div class="am-gallery-item">
+            <a href="images/2.jpg" class="">
+                <img src="images/2.jpg"  alt="某天 也许会相遇 相遇在这个好地方"/>
+                <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+                <div class="am-gallery-desc">2375-09-26</div>
+            </a>
+        </div>
+    </li>
+    <li>
+        <div class="am-gallery-item">
+            <a href="images/3.jpg" class="">
+                <img src="images/3.jpg"  alt="不要太担心 只因为我相信"/>
+                <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
+                <div class="am-gallery-desc">2375-09-26</div>
+            </a>
+        </div>
+    </li>
+    <li>
+        <div class="am-gallery-item">
+            <a href="images/4.jpg" class="">
+                <img src="images/4.png"  alt="终会走过这条遥远的道路"/>
+                <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                <div class="am-gallery-desc">2375-09-26</div>
+            </a>
+        </div>
+    </li>
+</ul>
+
+
+<ul id="V_imgs_list" data-am-widget="gallery" class="am-gallery am-avg-sm-3
+am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
+  <li v-for="(img, index) in images">
+    <div class="am-gallery-item">
+      <a :href="img.image_url" :title="img.description">
+        <img :src="img.image_url" :alt="img.image_url">
+        <!-- <h3 class="am-gallery-title">title: {{ img.description }}</h3> -->
+        <div class="am-gallery-desc">desc: {{ img.description }}</div>
+      </a>
     </div>
+  </li>
+</ul>
 
 
-    <!-- jQuery -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <!-- Vuejs -->
-    <script src="js/vue.js"></script>
-    <!-- Semantic -->
-    <script src="js/semantic.min.js"></script>
-    <!-- Owl Carousel -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Hammer -->
-    <script src="js/hammer.js"></script>
-    <!-- Hammer-zoomImg -->
-    <script src="js/hammer-zoomImg.js"></script>
-    <!-- Main JS -->
-    <script src="js/main.js"></script>
 
-  </body>
+<script src="js/jquery-3.1.1.min.js"></script>
+<!-- Vuejs -->
+<script src="js/vue.js"></script>
+<script src="js/amazeui.js"></script>
+<script>
+$(function() {
+  var prev = new Vue({
+    el: '#V_imgs_list',
+    data: {
+      images: [{
+        image_url: 'images/1.jpg',
+        description: '图片1'
+      }, {
+        image_url: 'images/2.jpg',
+        description: '图片2'
+      }, {
+        image_url: 'images/3.jpg',
+        description: '图片3'
+      }, {
+        image_url: 'images/4.png',
+        description: '图片4'
+      }]
+    }
+  });
+});
+</script>
+</body>
 </html>

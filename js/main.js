@@ -12,6 +12,9 @@ $(function() {
       }, {
         image_url: 'images/3.jpg',
         description: '图片3'
+      }, {
+        image_url: 'images/4.png',
+        description: '图片4'
       }]
     },
     methods: {
@@ -26,7 +29,8 @@ $(function() {
       var owlBgimg = $("#J_owl_imgs");
       owlBgimg.owlCarousel({
         items: 1,
-        autoWidth:true
+        autoWidth:true,
+        center: true
       });
 
       // 缩放图片：双击缩放，单击关闭，手指可缩放、移动
