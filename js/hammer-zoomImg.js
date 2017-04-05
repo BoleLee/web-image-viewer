@@ -54,10 +54,14 @@
       if(pos.scale < that.MinScale) {
         pos.scale = that.MinScale;
       }
+      if(pos.scale <= 1) {
+        pos.translateX = 0;
+        pos.translateY = 0;
+      }
 
       var _pos = function(){
         var _style = [
-          'translate3d(' + pos.translateX + 'px,' + pos.translateY + 'px,0)',
+          'translate(' + pos.translateX + 'px,' + pos.translateY + 'px)',
           'scale(' + pos.scale + ',' + pos.scale + ')'
         ]
         _style = _style.join(' ');
@@ -102,7 +106,7 @@
       that.mc.get('singletap').requireFailure('doubletap');
 
 
-      that.mc.on('panstart panmove', _onPan);
+      // that.mc.on('panstart panmove', _onPan);
       that.mc.on('pinchstart pinchmove', _onPinch);
       that.mc.on('doubletap', _onDoubleTap);
       // that.mc.on('singletap', _onSingleTap);

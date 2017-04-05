@@ -21,11 +21,12 @@ $(function() {
     },
     mounted: function() {
       var vm = this;
-      $(".J_imgs_prev").dimmer('show');
+      // $(".J_imgs_prev").dimmer('show');
 
       var owlBgimg = $("#J_owl_imgs");
       owlBgimg.owlCarousel({
-        items: 1
+        items: 1,
+        autoWidth:true
       });
 
       // 缩放图片：双击缩放，单击关闭，手指可缩放、移动

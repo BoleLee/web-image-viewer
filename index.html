@@ -22,8 +22,9 @@
   </head>
   <body>
 
-    <div id="V_imgs_prev" class="ui page dimmer prev-dimmer J_imgs_prev">
+    <div id="V_imgs_prev" class="prev-dimmer J_imgs_prev">
       <div id="J_owl_imgs" class="owl-carousel owl-theme">
+      <!-- <div style="display: flex; flex-direction: column;"> -->
         <template v-for="(img, index) in images">
         <div class="prev-img-field">
           <img :src="img.image_url" :id="'J_imgzooming_'+index" :alt="img.description">
@@ -32,6 +33,7 @@
           </div>
         </div>
         </template>
+      <!-- </div> -->
       </div>
     </div>
 
