@@ -64,8 +64,8 @@ am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: true }"
     <div class="am-gallery-item">
       <a :href="img.image_url" :title="img.description">
         <img :src="img.image_url" :alt="img.image_url">
-        <!-- <h3 class="am-gallery-title">title: {{ img.description }}</h3> -->
-        <div class="am-gallery-desc">desc: {{ img.description }}</div>
+        <h3 class="am-gallery-title">title: {{ img.description }}</h3>
+        <!-- <div class="am-gallery-desc">desc: {{ img.description }}</div> -->
       </a>
     </div>
   </li>
@@ -74,9 +74,9 @@ am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: true }"
 
 
 <script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/amazeui.js"></script>
 <!-- Vuejs -->
 <script src="js/vue.js"></script>
-<script src="js/amazeui.js"></script>
 <script>
 $(function() {
   var prev = new Vue({
