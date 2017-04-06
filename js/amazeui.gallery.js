@@ -1,7 +1,7 @@
 /**
   * amazeui定制：Web组件 galary
   * 改写标记: // @modified
-  *          使大图预览的区域为屏幕宽高
+  *          使大图预览的区域宽高为屏幕宽高
   * Author: BoleLee(964624188@qq.com)
   * Date: 2017-04-06
   *
