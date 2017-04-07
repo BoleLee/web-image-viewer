@@ -884,7 +884,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    childList: true,
 	    subtree: true
 	  }, function(mutations, observer) {
-	    // _this.refreshSlides();
+	  	// @modified
+	    _this.refreshSlides();
 	    // console.log('mutations[0].type);
 	  });
 
@@ -937,6 +938,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var src;
 	    var title;
 
+	    // @modified
 	    // get image URI from link's href attribute
 	    if (item.nodeName === 'A') {
 	      src = item.href; // to absolute path

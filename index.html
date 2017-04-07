@@ -17,6 +17,7 @@
 </head>
 <body>
 
+<h3>静态图片数据：</h3>
 <ul data-am-widget="gallery" class="am-gallery am-avg-sm-3
   am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: {weChatImagePreview: false} }" >
     <li>
@@ -48,7 +49,7 @@
     </li>
     <li>
         <div class="am-gallery-item">
-            <a href="images/4.jpg" class="">
+            <a href="images/4.png" class="">
                 <img src="images/4.png"  alt="终会走过这条遥远的道路"/>
                 <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
                 <div class="am-gallery-desc">2375-09-26</div>
@@ -57,24 +58,27 @@
     </li>
 </ul>
 
-
-<ul id="V_imgs_list" data-am-widget="gallery" class="am-gallery am-avg-sm-3
+<h3>动态加载图片数据：由js加载（此例子）或随页面模板渲染(如rails erb模板，laravel blade模板)</h3>
+<p style="color:#f00;">amazeui.gallery.js需等图片数据到位之后加载</p>
+<div id="V_imgs_list">
+    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-3
 am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: {weChatImagePreview: false} }" >
-  <li v-for="(img, index) in images">
-    <div class="am-gallery-item">
-      <a :href="img.image_url" :title="img.description" class="">
-        <img :src="img.image_url" :alt="img.image_url">
-        <h3 class="am-gallery-title">title: {{ img.description }}</h3>
-        <!-- <div class="am-gallery-desc">desc: {{ img.description }}</div> -->
-      </a>
-    </div>
-  </li>
-</ul>
+      <li v-for="(img, index) in images">
+        <div class="am-gallery-item">
+          <a :href="img.image_url" :title="img.description" class="">
+            <img :src="img.image_url" :alt="img.description">
+            <h3 class="am-gallery-title">title: {{ img.description }}</h3>
+            <!-- <div class="am-gallery-desc">desc: {{ img.description }}</div> -->
+          </a>
+        </div>
+      </li>
+    </ul>
+</div>
+
 
 
 
 <script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/amazeui.gallery.js"></script>
 <!-- Vuejs -->
 <script src="js/vue.js"></script>
 <script>
@@ -100,5 +104,7 @@ $(function() {
   });
 });
 </script>
+
+<script src="js/amazeui.gallery.js"></script>
 </body>
 </html>
