@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+.slider-wrapper {
+  position: relative;
+  background: #333; }
+
+div.item {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9); }
+
+div.item,
+div.item img {
+  -webkit-user-drag: none; }
+
+/*# sourceMappingURL=style.pinchzoom.css.map */

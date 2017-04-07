@@ -1608,7 +1608,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 
 	    getContainerX: function() {
-	      return this.container[0].offsetWidth;
+	      // return this.container[0].offsetWidth;
         // @modified
         return window.innerWidth;
 	    },

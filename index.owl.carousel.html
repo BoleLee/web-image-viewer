@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>轮换查看图片及图片缩放</title>
+    <title>owl.carousel+hammer+zoomImg demo</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -14,19 +14,17 @@
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <!-- Semantic UI -->
-    <link rel="stylesheet" href="css/semantic-ui.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.owl.css">
 
   </head>
   <body>
 
-    <div id="V_imgs_prev" class="prev-dimmer J_imgs_prev">
+    <div id="V_imgs_prev" class="prev-dimmer">
       <div id="J_owl_imgs" class="owl-carousel owl-theme">
       <!-- <div style="display: flex; flex-direction: column;"> -->
         <template v-for="(img, index) in images">
-        <div class="prev-img-field" style="width: 100vw; height: 100vh; overflow: scroll;">
+        <div class="prev-img-field">
           <img :src="img.image_url" :id="'J_imgzooming_'+index" :alt="img.description">
           <div class="bottom-text">
             {{ img.description }}
@@ -42,8 +40,6 @@
     <script src="js/jquery-3.1.1.min.js"></script>
     <!-- Vuejs -->
     <script src="js/vue.js"></script>
-    <!-- Semantic -->
-    <script src="js/semantic.min.js"></script>
     <!-- Owl Carousel -->
     <script src="js/owl.carousel.min.js"></script>
     <!-- Hammer -->
@@ -51,7 +47,7 @@
     <!-- Hammer-zoomImg -->
     <script src="js/hammer-zoomImg.js"></script>
     <!-- Main JS -->
-    <script src="js/main.js"></script>
+    <script src="js/main.owl.js"></script>
 
   </body>
 </html>

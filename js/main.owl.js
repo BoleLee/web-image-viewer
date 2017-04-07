@@ -17,14 +17,8 @@ $(function() {
         description: '图片4'
       }]
     },
-    methods: {
-      closeDimmer: function() {
-        $(".J_imgs_prev").dimmer('hide');
-      }
-    },
     mounted: function() {
       var vm = this;
-      // $(".J_imgs_prev").dimmer('show');
 
       var owlBgimg = $("#J_owl_imgs");
       owlBgimg.owlCarousel({
@@ -39,6 +33,7 @@ $(function() {
         var zooming = new zoomImg(id);
         zooming.picInit();
       }
+
     }
   });
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>owl.carousel+Pinchzoom.js Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="css/style.pinchzoom.css">
+
+</head>
+<body>
+
+
+<div class="slider-wrapper">
+    <div id='J_slider' class="owl-carousel">
+        <div class="item J_pinch_zoom">
+            <img src="images/1.jpg">
+        </div>
+
+        <div class="item J_pinch_zoom">
+            <img src="images/2.jpg">
+        </div>
+
+        <div class="item J_pinch_zoom">
+            <img src="images/3.jpg">
+        </div>
+
+        <div class="item J_pinch_zoom">
+            <img src="images/4.png">
+        </div>
+    </div>
+</div>
+
+<!-- <div class="J_pinch_zoom">
+    <img src="images/1.jpg"/>
+</div> -->
+
+
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $("#J_slider").owlCarousel({
+                items: 1,
+                autoWidth:true,
+                center: true
+            });
+
+            // $('.J_pinch_zoom').each(function () {
+            //     new RTP.PinchZoom($(this), {});
+            // });
+
+        })
+
+    </script>
+</body>
+</html>
