@@ -27,6 +27,13 @@ js改写：使大图预览的区域宽高为屏幕宽高，改写标记：```// 
 
 方案： ```jQuery + UI + Hammer + PinchZoom, ``` 详细代码可查阅 ```amazeui-gallery.js```
 
+### 当前遇到问题 ###
+
+示例中下面一排图片，查看大图一直是通过a标签的方式，而不是amazeui写的purview的效果，而审查元素可以看到其html代码是生成了的；我把代码搬到```CodePen```上，结果是都能正常使用预览大图的交互，不知原因是什么，怎么解决？
+[CodePen Demo代码](https://codepen.io/gracelee/pen/yMWavv)
+[CodePen Demo效果: Debug Mode](http://s.codepen.io/gracelee/debug/yMWavv/dXAqBbdeZzbk)
+
+
 
 ## index.owl.carousel.html ##
 
@@ -44,6 +51,8 @@ slider功能：```owl.carousel```
 IOS上图片过多时，预览大图会自动刷新页面，无法预览
 
 
+
 ## index.pinchzoom.html ##
+
 受```amazeui gallery```启发，感觉可以根据自己的需要，直接用```pinchzoom```和slider组合来实现图片查看器效果，尝试了```owl.carousel+zoompinch```, 目前未成功，遇到问题：当加上pinchzoom的代码，图片就看不到了，而直接写一张图片测试，是可以的，不知道```pinchzoom```是跟```owl.carousel```有什么矛盾？
 
