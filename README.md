@@ -20,12 +20,15 @@ sass --watch scss:css
 
 ```amazeui Web组件 gallery(图片画廊)```
 代码由amazeui定制所得，这里重命名为：```amazeui-gallery.js, amaze-ui/amazeui-gallery.scss```，由于定制的css可能少了需要的其他模块的代码，此处直接引用了整个amazeui的css代码，定制方法见[amazeui官网说明](http://amazeui.org/customize)。
+
 此处字体图标路径做了修改，具体路径可通过自定义的sass变量```$icon-font-url```指定，此处设置为: '../fonts/amaze-ui/'。
 
 js改写：使大图预览的区域宽高为屏幕宽高，改写标记：```// @modified ```
 
+方案： ```jQuery + UI + Hammer + PinchZoom, ``` 详细代码可查阅 ```amazeui-gallery.js```
 
-## index-owl.carousel ##
+
+## index.owl.carousel.html ##
 
 使用```owl.carousel```实现slider查看图片
 
@@ -39,3 +42,8 @@ slider功能：```owl.carousel```
 ### 缺点 ###
 缩放平移无限制界限，图片平移后容易相互交叉
 IOS上图片过多时，预览大图会自动刷新页面，无法预览
+
+
+## index.pinchzoom.html ##
+受```amazeui gallery```启发，感觉可以根据自己的需要，直接用```pinchzoom```和slider组合来实现图片查看器效果，尝试了```owl.carousel+zoompinch```, 目前未成功，遇到问题：当加上pinchzoom的代码，图片就看不到了，而直接写一张图片测试，是可以的，不知道```pinchzoom```是跟```owl.carousel```有什么矛盾？
+
