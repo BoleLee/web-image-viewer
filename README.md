@@ -33,7 +33,12 @@ js改写：使大图预览的区域宽高为屏幕宽高，改写标记：```// 
 [CodePen Demo代码](https://codepen.io/gracelee/pen/yMWavv)
 [CodePen Demo效果: Debug Mode](http://s.codepen.io/gracelee/debug/yMWavv/dXAqBbdeZzbk)
 
+更新：2017-04-07
+将amazeui.gallery代码放到最后加载，发现效果就正常了；
+猜测原因：图片的数据由js或html模板(如rails erb, laravel blade)渲染的话，需要保证等到数据渲染完毕后，再运行gallery的代码；
+由于gallery执行时不需要执行某一句js代码，没有办法通过调整该代码何时执行来达到目标，不知道有没有能不能将查看大图这个功能给暴露出来，需要时执行
 
+[问题链接](https://github.com/amazeui/amazeui/issues/958)
 
 ## index.owl.carousel.html ##
 
