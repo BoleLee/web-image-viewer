@@ -18,12 +18,17 @@ sass --watch scss:css
 
 ### 实现方式 ###
 
-```amazeui Web组件 gallery(图片画廊)```
-代码由amazeui定制所得，这里重命名为：```amazeui-gallery.js, amaze-ui/amazeui-gallery.scss```，由于定制的css可能少了需要的其他模块的代码，此处直接引用了整个amazeui的css代码，定制方法见[amazeui官网说明](http://amazeui.org/customize)。
+以```amazeui gallery```为基础，根据需要做一些改动。
+
+```amazeui Web组件 gallery(图片画廊)```代码由amazeui定制所得，这里重命名为：```amazeui.gallery.js, amaze-ui/amazeui.gallery.scss```，由于定制的css可能少了需要的其他模块的代码，此处直接引用了整个amazeui的css代码，定制方法见[amazeui官网说明](http://amazeui.org/customize)。
 
 此处字体图标路径做了修改，具体路径可通过自定义的sass变量```$icon-font-url```指定，此处设置为: '../fonts/amaze-ui/'。
 
-js改写：改写标记：```// @modified ```
+关于```amazeui gallery```的使用可以访问[amazeui官网文档](http://amazeui.org/widgets/gallery)
+
+### 改动说明 ###
+
+js: 改写标记：```// @modified ```
   1. zoom image container: 使大图预览的区域宽高为屏幕宽高
   2. big images src: get big images src from data-rel or lazyload images or src
   3. reset image: reset image scale and offset when slide activate
@@ -38,13 +43,15 @@ js改写：改写标记：```// @modified ```
   - 第5点：查看大图时，除了显示图片标题外，可能还想显示其他文字内容，使用：```<img src="/to/image_path" alt="image_title" data-extra-info="其他文字内容">```
   - 第6点：当放大图片时，滑动查看图片边界时，容易被认为是滑动切换上下张，待改进，效果如微信图片查看
 
-css改写：
+css：
   1. js改写第5点，查看大图时文字样式调整；
   2. 查看大图时，图片宽度若小于屏幕宽度，则使其铺满屏幕宽度；
   3. js改写第4点的css辅助，只改此css也可达到目的
 
 
-实现方案： ```jQuery + Amaze UI + Hammer + PinchZoom, ``` 详细代码可查阅 ```amazeui-gallery.js```
+### 实现方案解读 ###
+
+```jQuery + Amaze UI + Hammer + PinchZoom, ``` 详细代码可查阅 ```amazeui.gallery.js```
 
 amazeui.gallery.js图解：
 
