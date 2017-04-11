@@ -14313,7 +14313,103 @@ tbody.am-collapse.am-in {
   margin-top: 1rem;
   margin-bottom: 1rem; }
 
-.am-gallery-overlay .am-gallery-item img {
-  height: 120px; }
+/* 重写amazeui gallery的部分样式 */
+.am-pureview .am-pureview-actions {
+  height: 45px; }
+  [data-dpr="2"] .am-pureview .am-pureview-actions {
+    height: 90px; }
+  [data-dpr="3"] .am-pureview .am-pureview-actions {
+    height: 135px; }
+  .am-pureview .am-pureview-actions a {
+    left: 10px;
+    width: 45px;
+    line-height: 45px;
+    font-size: 16px; }
+    [data-dpr="2"] .am-pureview .am-pureview-actions a {
+      left: 20px; }
+    [data-dpr="3"] .am-pureview .am-pureview-actions a {
+      left: 30px; }
+    [data-dpr="2"] .am-pureview .am-pureview-actions a {
+      width: 90px; }
+    [data-dpr="3"] .am-pureview .am-pureview-actions a {
+      width: 135px; }
+    [data-dpr="2"] .am-pureview .am-pureview-actions a {
+      line-height: 90px; }
+    [data-dpr="3"] .am-pureview .am-pureview-actions a {
+      line-height: 135px; }
+    [data-dpr="2"] .am-pureview .am-pureview-actions a {
+      font-size: 32px; }
+    [data-dpr="3"] .am-pureview .am-pureview-actions a {
+      font-size: 48px; }
+.am-pureview .am-pureview-bar {
+  font-size: 14px;
+  min-height: 45px;
+  line-height: 25px;
+  padding: 10px;
+  height: auto;
+  justify-content: space-between; }
+  [data-dpr="2"] .am-pureview .am-pureview-bar {
+    font-size: 28px; }
+  [data-dpr="3"] .am-pureview .am-pureview-bar {
+    font-size: 42px; }
+  [data-dpr="2"] .am-pureview .am-pureview-bar {
+    min-height: 90px; }
+  [data-dpr="3"] .am-pureview .am-pureview-bar {
+    min-height: 135px; }
+  [data-dpr="2"] .am-pureview .am-pureview-bar {
+    line-height: 50px; }
+  [data-dpr="3"] .am-pureview .am-pureview-bar {
+    line-height: 75px; }
+  [data-dpr="2"] .am-pureview .am-pureview-bar {
+    padding: 20px; }
+  [data-dpr="3"] .am-pureview .am-pureview-bar {
+    padding: 30px; }
+  .am-pureview .am-pureview-bar .am-pureview-text {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden; }
+    .am-pureview .am-pureview-bar .am-pureview-text .am-pureview-title {
+      margin-left: 0; }
+  .am-pureview .am-pureview-bar .am-pureview-counter {
+    align-self: flex-end; }
+  .am-pureview .am-pureview-bar .am-pureview-total {
+    font-size: 12px;
+    line-height: 25px; }
+    [data-dpr="2"] .am-pureview .am-pureview-bar .am-pureview-total {
+      font-size: 24px; }
+    [data-dpr="3"] .am-pureview .am-pureview-bar .am-pureview-total {
+      font-size: 36px; }
+    [data-dpr="2"] .am-pureview .am-pureview-bar .am-pureview-total {
+      line-height: 50px; }
+    [data-dpr="3"] .am-pureview .am-pureview-bar .am-pureview-total {
+      line-height: 75px; }
+.am-pureview .am-pureview-bar, .am-pureview .am-pureview-actions {
+  opacity: 1; }
+.am-pureview .am-pureview-nav {
+  bottom: -99px; }
+.am-pureview .am-pureview-slider img {
+  min-width: 100%; }
+.am-pureview .am-pureview-slider .am-pinch-zoom:after {
+  font-size: 24px;
+  line-height: 24px;
+  margin-left: -12px;
+  margin-top: -12px; }
+  [data-dpr="2"] .am-pureview .am-pureview-slider .am-pinch-zoom:after {
+    font-size: 48px; }
+  [data-dpr="3"] .am-pureview .am-pureview-slider .am-pinch-zoom:after {
+    font-size: 72px; }
+  [data-dpr="2"] .am-pureview .am-pureview-slider .am-pinch-zoom:after {
+    line-height: 48px; }
+  [data-dpr="3"] .am-pureview .am-pureview-slider .am-pinch-zoom:after {
+    line-height: 72px; }
+  [data-dpr="2"] .am-pureview .am-pureview-slider .am-pinch-zoom:after {
+    margin-left: -24px; }
+  [data-dpr="3"] .am-pureview .am-pureview-slider .am-pinch-zoom:after {
+    margin-left: -36px; }
+  [data-dpr="2"] .am-pureview .am-pureview-slider .am-pinch-zoom:after {
+    margin-top: -24px; }
+  [data-dpr="3"] .am-pureview .am-pureview-slider .am-pinch-zoom:after {
+    margin-top: -36px; }
 
 /*# sourceMappingURL=amazeui.css.map */

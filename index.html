@@ -23,7 +23,7 @@
     <li>
         <div class="am-gallery-item">
             <a href="images/1.jpg" class="">
-                <img src="images/1.jpg"  alt="远方 有一个地方 那里种有我们的梦想"/>
+                <img src="images/1.jpg" alt="远方 有一个地方 那里种有我们的梦想">
                 <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
                 <div class="am-gallery-desc">2375-09-26</div>
             </a>
@@ -32,7 +32,7 @@
     <li>
         <div class="am-gallery-item">
             <a href="images/2.jpg" class="">
-                <img src="images/2.jpg"  alt="某天 也许会相遇 相遇在这个好地方"/>
+                <img src="images/2.jpg"  alt="某天 也许会相遇 相遇在这个好地方">
                 <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
                 <div class="am-gallery-desc">2375-09-26</div>
             </a>
@@ -41,7 +41,7 @@
     <li>
         <div class="am-gallery-item">
             <a href="images/3.jpg" class="">
-                <img src="images/3.jpg"  alt="不要太担心 只因为我相信"/>
+                <img src="images/3.jpg"  alt="不要太担心 只因为我相信">
                 <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
                 <div class="am-gallery-desc">2375-09-26</div>
             </a>
@@ -50,7 +50,7 @@
     <li>
         <div class="am-gallery-item">
             <a href="images/4.png" class="">
-                <img src="images/4.png"  alt="终会走过这条遥远的道路"/>
+                <img src="images/4.png"  alt="终会走过这条遥远的道路">
                 <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
                 <div class="am-gallery-desc">2375-09-26</div>
             </a>
@@ -65,9 +65,9 @@
 am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: {weChatImagePreview: false} }" >
       <li v-for="(img, index) in images">
         <div class="am-gallery-item">
-          <a :href="img.image_url" :title="img.description" class="">
-            <img :src="img.image_url" :alt="img.description">
-            <h3 class="am-gallery-title">title: {{ img.description }}</h3>
+          <a :href="img.image_url" :title="img.title">
+            <img :src="img.image_url" :alt="img.title" :data-extra-info="img.description">
+            <h3 class="am-gallery-title">title: {{ img.title }}</h3>
             <!-- <div class="am-gallery-desc">desc: {{ img.description }}</div> -->
           </a>
         </div>
@@ -89,16 +89,20 @@ $(function() {
     data: {
       images: [{
         image_url: 'images/1.jpg',
-        description: '图片1'
+        title: '图片1',
+        description: ''
       }, {
         image_url: 'images/2.jpg',
-        description: '图片2'
+        title: '图片2',
+        description: '其他文字描述内容'
       }, {
         image_url: 'images/3.jpg',
-        description: '图片3'
+        title: '图片3',
+        description: '其他文字描述内容'
       }, {
         image_url: 'images/4.png',
-        description: '图片4'
+        title: '图片4',
+        description: ''
       }]
     }
   });

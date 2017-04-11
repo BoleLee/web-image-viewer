@@ -1,7 +1,13 @@
 /**
   * amazeui定制：Web组件 galary
   * 改写标记: // @modified
-  *          使大图预览的区域宽高为屏幕宽高
+  *          1. zoom image container: 使大图预览的区域宽高为屏幕宽高
+  *          2. big images src: get big images src from data-rel or lazyload images or src
+  *          3. reset image: reset image scale and offset when slide activate
+  *          4. actions toolbar: let actions toolbar always display
+  *          5. big image extra text: get some extra info to display when preview a big image
+  *          // TODO 图片切换滑动边界保护（图片放大状态可移动时）
+  *
   * Author: BoleLee(964624188@qq.com)
   * Date: 2017-04-06
   *
@@ -760,7 +766,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  '<li class="am-pureview-next"><a href=""></a></li></ul>' +
 	  '<ol class="am-pureview-nav"></ol>' +
 	  '<div class="am-pureview-bar am-active">' +
-	  '<span class="am-pureview-title"></span>' +
+	  '<div class="am-pureview-text">' +
+	  '<div class="am-pureview-title"></div>' +
+	  '<div class="am-pureview-extra-info"></div></div>' +
 	  '<div class="am-pureview-counter"><span class="am-pureview-current"></span> / ' +
 	  '<span class="am-pureview-total"></span></div></div>' +
 	  '<div class="am-pureview-actions am-active">' +
@@ -783,6 +791,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    total: '.am-pureview-total',
 	    current: '.am-pureview-current',
 	    title: '.am-pureview-title',
+	    extraInfo: '.am-pureview-extra-info',
 	    actions: '.am-pureview-actions',
 	    bar: '.am-pureview-bar',
 	    pinchZoom: '.am-pinch-zoom',
@@ -812,6 +821,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  $('body').append($pureview);
 
+	  this.$extraInfo = $pureview.find(options.selector.extraInfo);
 	  this.$title = $pureview.find(options.selector.title);
 	  this.$current = $pureview.find(options.selector.current);
 	  this.$bar = $pureview.find(options.selector.bar);
@@ -865,14 +875,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  this.$slider.hammer().on('swipeleft.pureview.amui', function(e) {
 	    e.preventDefault();
+	    // TODO 滑动边界保护：当图片处于放大状态，则当其滑到边界，判断是否要切换下一张
 	    _this.nextSlide();
 	  }).on('swiperight.pureview.amui', function(e) {
 	    e.preventDefault();
+	    // TODO 滑动边界保护
 	    _this.prevSlide();
-	  }).on('press.pureview.amui', function(e) {
-	    e.preventDefault();
-	    options.toggleToolbar && _this.toggleToolBar();
-	  });
+	  })
+	  // @modified actions toolbar: let actions toolbar always display
+	  // .on('press.pureview.amui', function(e) {
+	  //   e.preventDefault();
+	  //   options.toggleToolbar && _this.toggleToolBar();
+	  // })
+	  ;
 
 	  this.$slider.data('hammer').get('swipe').set({
 	    direction: Hammer.DIRECTION_HORIZONTAL,
@@ -936,6 +951,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  $images.not('[' + viewedFlag + ']').each(function(i, item) {
 	    var src;
 	    var title;
+	    var extraInfo;
 
 	    // get image URI from link's href attribute
 	    if (item.nodeName === 'A') {
@@ -944,9 +960,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    } else {
 	      // NOTE: `data-rel` should be a full URL, otherwise,
 	      //        WeChat images preview will not work
-	      src = $(item).data('rel') || item.src; // <img src='' data-rel='' />
+	      // @modified big images src: get big images src from data-rel or lazyload images or src
+	    	// <img data-original="" src="" data-rel="">
+	    	// data-rel 放大图，data-original为使用lazyload时所用，当图片进入viewport时会加载生成图片的src
+	      src = $(item).data('rel') || $(item).data('original') || item.src;
 	      src = UI.utils.getAbsoluteUrl(src);
 	      title = $(item).attr('alt') || '';
+	      // @modified big image extra text: get some extra info to display when preview a big image
+	      extraInfo = $(item).data('extraInfo') || '';
 	    }
 
 	    // add pureviewed flag
@@ -956,7 +977,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // http://tmt.io/wechat/  not working?
 	    _this.imgUrls.push(src);
 
-	    $slides = $slides.add($('<li data-src="' + src + '" data-title="' + title +
+	    // @modified big image extra text: get some extra info to display when preview a big image
+	    $slides = $slides.add($('<li data-src="' + src + '" data-title="' + title + '" data-extra-info="' + extraInfo +
 	    '"></li>'));
 	    $navItems = $navItems.add($('<li>' + (i + 1) + '</li>'));
 	  });
@@ -993,6 +1015,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var $slides = this.$slides;
 	  var activeIndex = $slides.index($slide);
 	  var title = $slide.data('title') || '';
+	  var extraInfo = $slide.data('extraInfo') || '';
 	  var active = options.className.active;
 
 	  if ($slides.find('.' + active).is($slide)) {
@@ -1013,6 +1036,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  this.transitioning = 1;
 
 	  this.$title.text(title);
+	  // @modified big image extra text: get some extra info to display when preview a big image
+	  this.$extraInfo.text(extraInfo);
 	  this.$current.text(activeIndex + 1);
 	  $slides.removeClass();
 	  $slide.addClass(active);
@@ -1029,6 +1054,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  } else {
 	    this.transitioning = 0;
 	  }
+
+	  // @modified reset image: reset image scale and offset when slide activate
+	  var $pinchWrapper = $slide.find(this.options.selector.pinchZoom);
+	  // console.log($pinchWrapper.data('amui.pinchzoom'));
+	  var $pinchZoom = $pinchWrapper.data('amui.pinchzoom');
+	  $pinchZoom.zoomFactor = 1;
+	  $pinchZoom.offset.x = 0;
+	  $pinchZoom.offset.y = 0;
+	  $pinchZoom.update();
 
 	  // TODO: pre-load next image
 	};
@@ -1476,7 +1510,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    updateAspectRatio: function() {
 	      // this.setContainerY(this.getContainerX() / this.getAspectRatio());
-        // @modified
+        // @modified zoom image container
         this.setContainerY();
 	    },
 
@@ -1609,19 +1643,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    getContainerX: function() {
 	      // return this.container[0].offsetWidth;
-        // @modified
+        // @modified zoom image container
         return window.innerWidth;
 	    },
 
 	    getContainerY: function() {
 	      // return this.container[0].offsetHeight;
-        // @modified
+        // @modified zoom image container
         return window.innerHeight;
 	    },
 
 	    setContainerY: function(y) {
 	      // return this.container.height(y);
-        // @modified
+        // @modified zoom image container
         var t = window.innerHeight;
         return this.el.css({height: t}), this.container.height(t);
 	    },

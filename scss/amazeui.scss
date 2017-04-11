@@ -1,10 +1,101 @@
 $icon-font-url: '../fonts/amaze-ui/';
 
+
+@function px2rem($px, $base-font-size: 16px) {
+  @if (unitless($px)) {
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+    @return px2rem($px + 0px); // That may fail.
+  } @else if (unit($px) == rem) {
+    @return $px;
+  }
+  @return ($px / $base-font-size) * 1rem;
+}
+
+// 适配dpr的字体大小
+@mixin font-dpr($font-size){
+  font-size: $font-size;
+
+  [data-dpr="2"] & {
+      font-size: $font-size * 2;
+  }
+
+  [data-dpr="3"] & {
+      font-size: $font-size * 3;
+  }
+}
+@mixin px-dpr($property, $px) {
+  #{$property}: $px;
+
+  [data-dpr="2"] & {
+    #{$property}: $px * 2;
+  }
+
+  [data-dpr="3"] & {
+    #{$property}: $px * 3;
+  }
+}
+
+@mixin flex($value) {
+  -webkit-flex: $value;
+  -ms-flex: $value;
+  flex: $value;
+}
+
+
 @import "amaze-ui/amazeui";
-
-
-
-// 设置图片一致高度
-.am-gallery-overlay .am-gallery-item img {
-  height: 120px;
+/* 重写amazeui gallery的部分样式 */
+.am-pureview {
+  .am-pureview-actions {
+    @include px-dpr(height, 45px);
+    a {
+      @include px-dpr(left, 10px);
+      @include px-dpr(width, 45px);
+      @include px-dpr(line-height, 45px);
+      @include font-dpr(16px);
+    }
+  }
+  // 大图下方文字
+  .am-pureview-bar {
+    @include font-dpr(14px);
+    @include px-dpr(min-height, 45px);
+    @include px-dpr(line-height, 25px);
+    @include px-dpr(padding, 10px);
+    height: auto;
+    justify-content: space-between;
+    .am-pureview-text {
+      @include flex(1);
+      overflow: hidden;
+      .am-pureview-title {
+        margin-left: 0;
+      }
+      .am-pureview-extra-info {}
+    }
+    .am-pureview-counter {
+      align-self: flex-end;
+    }
+    .am-pureview-total {
+      @include font-dpr(12px);
+      @include px-dpr(line-height, 25px);
+    }
+  }
+  // 使标题和返回模式一直显示，圆点导航模式不出现
+  .am-pureview-bar, .am-pureview-actions {
+    opacity: 1;
+  }
+  .am-pureview-nav {
+    bottom: -99px;
+  }
+  .am-pureview-slider {
+    // 使图片宽度铺满屏幕宽度
+    // TODO 让图片初始宽度铺满屏幕宽度只对竖屏起作用
+    img {
+      min-width: 100%;
+    }
+    .am-pinch-zoom:after {
+      @include font-dpr(24px);
+      @include px-dpr(line-height, 24px);
+      @include px-dpr(margin-left, -12px);
+      @include px-dpr(margin-top, -12px);
+    }
+  }
 }
