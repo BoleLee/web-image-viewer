@@ -46,6 +46,10 @@ css改写：
 
 实现方案： ```jQuery + Amaze UI + Hammer + PinchZoom, ``` 详细代码可查阅 ```amazeui-gallery.js```
 
+amazeui.gallery.js图解：
+
+![amazeui.gallery.js图解](/images/amazeui.gallery.js-map.png)
+
 
 ### 遇到的问题 ###
 
