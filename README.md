@@ -31,12 +31,12 @@ js改写：改写标记：```// @modified ```
   5. big image extra text: get some extra info to display when preview a big image
   6. // TODO 图片切换滑动边界保护（图片放大状态可移动时）
 
-  1. 第1点：使大图预览的区域宽高为屏幕宽高
-  2. 第2点：当图片较多时，可能希望使用[lazyload](https://github.com/verlok/lazyload)或[jquery lazyload](https://github.com/tuupola/jquery_lazyload)来实现图片懒加载，则查看大图时应从```data-original```上获取图片路径；
-  3. 第3点：当放大查看某张图片，继而继续查看其他图片，再回到刚才被放大的图片时，将其zoom状态重置为初始状态
-  4. 第4点：查看大图状态下，会在有返回按钮和文字的视图与圆点导航的视图间切换，去掉这个，使一直在有返回按钮和文字的状态；
-  5. 第5点：查看大图时，除了显示图片标题外，可能还想显示其他文字内容，使用：```<img src="/to/image_path" alt="image_title" data-extra-info="其他文字内容">```
-  6. 第6点：当放大图片时，滑动查看图片边界时，容易被认为是滑动切换上下张，待改进，效果如微信图片查看
+  - 第1点：使大图预览的区域宽高为屏幕宽高
+  - 第2点：当图片较多时，可能希望使用[lazyload](https://github.com/verlok/lazyload)或[jquery lazyload](https://github.com/tuupola/jquery_lazyload)来实现图片懒加载，则查看大图时应从```data-original```上获取图片路径；
+  - 第3点：当放大查看某张图片，继而继续查看其他图片，再回到刚才被放大的图片时，将其zoom状态重置为初始状态
+  - 第4点：查看大图状态下，会在有返回按钮和文字的视图与圆点导航的视图间切换，去掉这个，使一直在有返回按钮和文字的状态；
+  - 第5点：查看大图时，除了显示图片标题外，可能还想显示其他文字内容，使用：```<img src="/to/image_path" alt="image_title" data-extra-info="其他文字内容">```
+  - 第6点：当放大图片时，滑动查看图片边界时，容易被认为是滑动切换上下张，待改进，效果如微信图片查看
 
 css改写：
   1. js改写第5点，查看大图时文字样式调整；
